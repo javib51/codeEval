@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main(int argc, const char * argv[]) {
+
+  if(argc!=2){                                                           
+    fprintf(stderr,"Usage: ./abundant N\n");
+    exit(1);
+  }
+
+   char* err;
+  int abundant=(int) strtol(argv[1],&err,0); 
+
+  if(*err!='\0'){
+    fprintf(stderr,"N is not a number\n");
+    exit(1);
+  }
+  
+  int sum, number,aux;
+  for(number=12;abundant>0;number++){
+
+    sum=0;
+
+    for(aux=number/2;aux>0 && sum<=number;aux--)
+      if(number%aux==0)
+        sum+=aux;
+    
+    if(sum>number){
+      printf("%d\n",number);
+      abundant--;
+    }
+  }
+  return 0;  
+}

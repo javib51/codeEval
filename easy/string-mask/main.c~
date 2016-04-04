@@ -1,0 +1,15 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, const char * argv[]) {
+
+  FILE* file=fopen(argv[1],"r");
+  char* line=NULL;
+
+  while(getline(&line,41,file)>0){
+    
+    printf("%d\n",result);
+    
+  }
+  return 0;  
+} 
